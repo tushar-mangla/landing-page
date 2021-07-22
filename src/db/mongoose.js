@@ -4,7 +4,7 @@
  const mongodb_url = ck.MONGODB_URL;
 
 //console.log(typeof(JSON.stringify(mongodb_url)))
- dotenv.config()
+ dotenv.config({path:'../../config/dev.env'})
 
 // const ConnectDb = async () => {
 //   try {
@@ -22,8 +22,9 @@
 
 // module.exports = ConnectDb;
 
-const url = process.env.MONGODB_URL || "mongodb://127.0.0.1:27017/login-database";
+const url = process.env.MONGODB_URL
 // const mongoose = require('mongoose');
+
 mongoose.connect( url, {
   useNewUrlParser: true,
   useCreateIndex: true,
