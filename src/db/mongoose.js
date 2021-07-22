@@ -1,39 +1,31 @@
-  const mongoose = require("mongoose");
- const dotenv = require("dotenv");
-//  const ck = require('ckey');
-//  const mongodb_url = ck.MONGODB_URL;
+const mongoose = require("mongoose");
+require('dotenv').config();
 
- dotenv.config()
 
-// const ConnectDb = async () => {
-//   try {
-//     const conn = await mongoose.connect(process.env.MONGODB_URL, {
-//       useNewUrlParser: true,
-//       useUnifiedTopology: true,
-//       useCreateIndex: true,
-//     });
-//     console.log(`mongodb connected ${conn.connection.host}`);
-//   } catch (error) {
-//     console.error(`Error ${error.message}`);
-//     process.exit(1);
-//   }
-// };
+let url = process.env.MONgODB_URL ;//|| 'mongodb+srv://taskapp:Tushar%40123%23@cluster0.otykb.mongodb.net/login-database?retryWrites=true&w=majority'
 
-// module.exports = ConnectDb;
-
-const url = process.env.MONGODB_URL
-// const mongoose = require('mongoose');
-
-mongoose.connect( url, {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  //useFindAndModify: false,
-  useUnifiedTopology: true,
-});
+const ConnectDb = async () => {
+  try {
+    const conn = await mongoose.connect(url, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify:false
+    });
+    console.log(`mongodb connected ${conn.connection.host}`);
+  } catch (error) {
+    console.error(`Error ${error}`);
+    process.exit(1);
+  }
+};
 
 mongoose.connection.once('open', function(){
   console.log('connected');
 }).on('error', function(){
   console.log('error is: ');
 })
+
+ module.exports = ConnectDb;
+
+
 

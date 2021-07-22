@@ -2,21 +2,19 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const model = require('./models/models')
-const dotenv = require('dotenv');
-dotenv.config();
+require('dotenv').config();
 const connectdb = require('./db/mongoose');
 const hbs = require("hbs");
 const { Script } = require("vm");
-//const mid = require('../templates/mid/mid.html')
 const port = process.env.PORT || 3000;
 
-
+//console.log(process.env);
 
 const stactic_path = path.join(__dirname, "../public");
 const template_path = path.join(__dirname, '../templates/views');
 //const partials_path = path.join(__dirname, '../templates/partials')
 
-connectdb;
+connectdb();
 
 app.use(express.json());
 app.use(express.urlencoded({extended:false}))
