@@ -2,9 +2,9 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const model = require('./models/models')
+const dotenv = require('dotenv');
 const connectdb = require('./db/mongoose');
 const hbs = require("hbs");
-const dotenv = require('dotenv');
 const { Script } = require("vm");
 //const mid = require('../templates/mid/mid.html')
 const port = process.env.PORT || 3000;
@@ -12,10 +12,10 @@ const port = process.env.PORT || 3000;
 
 const stactic_path = path.join(__dirname, "../public");
 const template_path = path.join(__dirname, '../templates/views');
-const partials_path = path.join(__dirname, '../templates/partials')
+//const partials_path = path.join(__dirname, '../templates/partials')
 
-connectdb();
-dotenv.config();
+connectdb;
+dotenv.config({path:'../config/dev.env'});
 app.use(express.json());
 app.use(express.urlencoded({extended:false}))
 
@@ -23,7 +23,7 @@ app.use(express.static(stactic_path));
 app.set('view engine',"hbs");
 app.set('views', template_path)
 //app.set('partials', partials_path)
-hbs.registerPartials(partials_path)
+//hbs.registerPartials(partials_path)
 
 
 app.get("/", (req, res) => {
