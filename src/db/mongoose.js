@@ -1,9 +1,8 @@
   const mongoose = require("mongoose");
  const dotenv = require("dotenv");
- const ck = require('ckey');
- const mongodb_url = ck.MONGODB_URL;
+//  const ck = require('ckey');
+//  const mongodb_url = ck.MONGODB_URL;
 
-//console.log(typeof(JSON.stringify(mongodb_url)))
  dotenv.config()
 
 // const ConnectDb = async () => {
@@ -28,7 +27,7 @@ const url = process.env.MONGODB_URL
 mongoose.connect( url, {
   useNewUrlParser: true,
   useCreateIndex: true,
-  useFindAndModify: false,
+  //useFindAndModify: false,
   useUnifiedTopology: true,
 });
 
