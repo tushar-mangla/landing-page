@@ -3,7 +3,7 @@ const path = require("path");
 const app = express();
 const model = require('./models/models')
 const dotenv = require('dotenv');
-dotenv.config({path:'../config/dev.env'});
+dotenv.config();
 const connectdb = require('./db/mongoose');
 const hbs = require("hbs");
 const { Script } = require("vm");

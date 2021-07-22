@@ -4,7 +4,7 @@
  const mongodb_url = ck.MONGODB_URL;
 
 //console.log(typeof(JSON.stringify(mongodb_url)))
- dotenv.config({path:'../../config/dev.env'})
+ dotenv.config()
 
 // const ConnectDb = async () => {
 //   try {
