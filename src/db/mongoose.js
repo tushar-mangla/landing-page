@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 // require('dotenv').config();
 
-
 // let url = process.env.MONgODB_URL ;//|| 'mongodb+srv://taskapp:Tushar%40123%23@cluster0.otykb.mongodb.net/login-database?retryWrites=true&w=majority'
 
 // const ConnectDb = async () => {
@@ -27,11 +26,9 @@ const mongoose = require("mongoose");
 
 //  module.exports = ConnectDb;
 
-
-
 mongoose.connect(process.env.MONGODB_URL, {
-  useNewUrlParser:true,
-  useCreateIndex:true,
-  useFindAndModify:false,
-  useUnifiedTopology:true
-})
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true,
+});
